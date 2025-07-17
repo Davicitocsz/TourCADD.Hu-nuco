@@ -1,0 +1,2418 @@
+/* ===== VARIABLES DE COLORES ===== */
+/* Define la paleta de colores utilizada en todo el sitio web */
+:root {
+    --verde-nilo: #5A9B6B;
+    --verde-oscuro: #3E7B4E;
+    --verde-claro: #7DB88A;
+    --crema: #F7F3E9;
+    --beige-calido: #E8DCC0;
+    --dorado-suave: #D4AF37;
+    --blanco: #FFFFFF;
+    --gris-claro: #F5F5F5;
+    --gris-medio: #CCCCCC;
+    --gris-oscuro: #333333;
+    --negro: #000000;
+    --sombra-suave: rgba(90, 155, 107, 0.1);
+    --sombra-media: rgba(90, 155, 107, 0.2);
+    --sombra-fuerte: rgba(90, 155, 107, 0.3);
+}
+
+/* ===== RESET Y BASE ===== */
+/* Establece estilos base y reset para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--gris-oscuro);
+    background-color: var(--crema);
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+/* Cabecera principal del sitio con navegación */
+header {
+    background: var(--verde-oscuro);
+    box-shadow: 0 4px 20px var(--sombra-media);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--verde-oscuro);
+    padding: 10px 20px;
+}
+
+/* Contenedor de navegación principal */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+}
+
+/* ===== LOGO ===== */
+/* Logotipo de la empresa con icono y texto */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--crema);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Icono circular del logo */
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--crema);
+    box-shadow: 0 4px 15px var(--sombra-fuerte);
+    transition: all 0.3s ease;
+    object-fit: cover;
+    background: var(--blanco);
+    padding: 2px;
+}
+
+.logo-icon:hover {
+    border-color: var(--dorado-suave);
+    box-shadow: 0 6px 20px var(--sombra-fuerte);
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Texto del logo (nombre y slogan) */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: var(--crema);
+}
+
+.logo-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-style: italic;
+    color: var(--verde-claro);
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+/* Lista de enlaces de navegación principal */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0 10px;
+}
+
+.nav-menu li a {
+    color: var(--crema);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-menu li a:hover {
+    background-color: var(--verde-claro);
+    color: var(--verde-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--sombra-fuerte);
+}
+
+/* ===== MENÚ HAMBURGUESA ===== */
+/* Botón de menú hamburguesa para dispositivos móviles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+    z-index: 1001;
+    margin-left: auto;
+    border-radius: 8px;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Líneas del menú hamburguesa */
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--verde-claro);
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    border-radius: 1px;
+}
+
+.hamburger:hover span {
+    background-color: var(--crema);
+}
+
+/* Animación del menú hamburguesa al activarse */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Adaptación para dispositivos móviles y tablets */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo-icon {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.75rem;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+
+    /* Menú desplegable para móviles */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: var(--verde-oscuro);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 280px;
+        max-width: 70vw;
+        box-shadow: 0 4px 20px var(--sombra-media);
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-menu li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+        width: 100%;
+        transition: all 0.3s ease;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .nav-menu li a:hover {
+        background-color: var(--verde-claro);
+        color: var(--verde-oscuro);
+        transform: translateY(0);
+        box-shadow: none;
+        padding-left: 2rem;
+    }
+}
+
+/* ===== DEPRECATED - Mantenido por compatibilidad ===== */
+/* Botón de menú desplegable antiguo (deprecado) */
+.menu_despegable {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ===== SECCIONES PRINCIPALES ===== */
+/* Contenedor para las secciones de contenido del sitio */
+.content-section {
+    display: none;
+    padding: 100px 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Excepciones para secciones específicas que siempre deben estar visibles */
+.provinces-section,
+.reservation-section,
+.customer-service {
+    display: block !important;
+}
+
+/* ===== HERO SECTION ===== */
+/* Sección principal de bienvenida con información de la empresa */
+.hero {
+    background: linear-gradient(135deg, var(--crema) 0%, var(--beige-calido) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    z-index: 1;
+    position: relative;
+}
+
+/* Título principal de la sección hero */
+.hero h2 {
+    font-size: 3.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px var(--sombra-suave);
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Subtítulo de la sección hero */
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--verde-nilo);
+    margin-bottom: 3rem;
+    font-style: italic;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Tarjeta de información de la empresa */
+.company-info {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--sombra-media);
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.company-info h3 {
+    color: var(--verde-oscuro);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--dorado-suave);
+    padding-bottom: 0.5rem;
+}
+
+.company-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--gris-oscuro);
+}
+
+/* ===== SECCIÓN PROVINCIAS ===== */
+/* Contenedor principal para mostrar las provincias disponibles */
+.provinces-section {
+    padding: 120px 2rem 2rem;
+}
+
+/* Encabezado de la sección con título y descripción */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: var(--verde-nilo);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Grilla responsiva para mostrar las tarjetas de provincias */
+.provinces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Tarjeta individual de cada provincia */
+.province-card {
+    background: var(--blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--sombra-suave);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Efecto de overlay al hacer hover en la tarjeta */
+.province-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--verde-nilo), var(--verde-claro));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.province-card:hover::before {
+    opacity: 0.1;
+}
+
+.province-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px var(--sombra-media);
+}
+
+/* Imagen de cada provincia */
+.province-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Título de cada provincia */
+.province-card h3 {
+    color: var(--verde-oscuro);
+    font-size: 1.5rem;
+    margin: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Descripción breve de cada provincia */
+.province-card p {
+    color: var(--gris-oscuro);
+    margin: 0 1rem 1.5rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* Botón para regresar a la lista de provincias */
+.back-button {
+    background: var(--verde-nilo);
+    color: var(--crema);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.back-button:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--sombra-fuerte);
+}
+
+/* ===== ESTILOS PARA DETALLES DE PROVINCIAS ===== */
+
+/* Contenedor principal que muestra los detalles de una provincia específica */
+#province-details-container {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Tarjeta de detalle completa de una provincia */
+.province-detail {
+    background: var(--blanco);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px var(--sombra-media);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Cabecera del detalle con imagen e información básica */
+.province-detail-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--crema) 0%, var(--beige-calido) 100%);
+    border-bottom: 3px solid var(--dorado-suave);
+}
+
+/* Imagen principal de la provincia en el detalle */
+.province-detail-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--sombra-suave);
+    transition: transform 0.3s ease;
+}
+
+.province-detail-image:hover {
+    transform: scale(1.05);
+}
+
+/* Información básica de la provincia (título y estadísticas) */
+.province-detail-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.province-detail-info h2 {
+    font-size: 2.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px var(--sombra-suave);
+    border-bottom: 3px solid var(--dorado-suave);
+    padding-bottom: 0.5rem;
+}
+
+/* Contenedor de estadísticas de la provincia */
+.province-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Elemento individual de estadística */
+.stat-item {
+    background: var(--blanco);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--sombra-suave);
+    border-left: 4px solid var(--verde-nilo);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px var(--sombra-media);
+}
+
+.stat-item strong {
+    color: var(--verde-oscuro);
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+}
+
+/* Contenido detallado de la provincia */
+.province-detail-content {
+    padding: 2rem;
+}
+
+/* Sección de descripción de la provincia */
+.province-description {
+    margin-bottom: 2rem;
+}
+
+.province-description h3 {
+    font-size: 1.8rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+/* Línea decorativa a la izquierda del título */
+.province-description h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, var(--verde-nilo), var(--verde-claro));
+    border-radius: 2px;
+}
+
+/* Párrafo de descripción completa */
+.province-description p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--gris-oscuro);
+    text-align: justify;
+    padding: 1rem;
+    background: var(--gris-claro);
+    border-radius: 10px;
+    border-left: 4px solid var(--verde-claro);
+}
+
+/* Sección de atractivos turísticos */
+.province-attractions {
+    background: var(--crema);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--sombra-suave);
+}
+
+.province-attractions h3 {
+    font-size: 1.8rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+/* Línea decorativa debajo del título de atractivos */
+.province-attractions h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--verde-nilo), var(--dorado-suave));
+    border-radius: 2px;
+}
+
+/* Lista de atractivos turísticos en formato de grilla */
+.province-attractions ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Elemento individual de atractivo turístico */
+.province-attractions li {
+    background: var(--blanco);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--sombra-suave);
+    position: relative;
+    padding-left: 2.5rem;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--verde-nilo);
+}
+
+.province-attractions li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--sombra-media);
+}
+
+/* Íconos decorativos para los atractivos */
+.province-attractions li::before {
+    content: '🏛️';
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.province-attractions li:nth-child(odd)::before {
+    content: '🏞️';
+}
+
+.province-attractions li:nth-child(3n)::before {
+    content: '🏔️';
+}
+
+/* Botón de volver mejorado con gradiente */
+.back-button {
+    background: linear-gradient(135deg, var(--verde-nilo), var(--verde-oscuro));
+    color: var(--crema);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    display: inline-block;
+    box-shadow: 0 4px 15px var(--sombra-suave);
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, var(--verde-oscuro), var(--negro));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--sombra-fuerte);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+/* Animación de entrada suave para el detalle de provincia */
+.province-detail {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE PARA DETALLES DE PROVINCIAS ===== */
+/* Adaptación para tablets */
+@media (max-width: 768px) {
+    .province-detail-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .province-detail-image {
+        height: 250px;
+    }
+    
+    .province-detail-info h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .province-stats {
+        gap: 0.8rem;
+    }
+    
+    .stat-item {
+        padding: 0.8rem;
+    }
+    
+    .province-detail-content {
+        padding: 1.5rem;
+    }
+    
+    .province-description h3,
+    .province-attractions h3 {
+        font-size: 1.5rem;
+    }
+    
+    .province-description p {
+        font-size: 1.1rem;
+        padding: 0.8rem;
+    }
+    
+    .province-attractions ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .province-attractions {
+        padding: 1.5rem;
+    }
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+    #province-details-container {
+        padding: 1rem;
+    }
+    
+    .province-detail-header {
+        padding: 1rem;
+    }
+    
+    .province-detail-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .province-detail-content {
+        padding: 1rem;
+    }
+    
+    .province-description p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .province-attractions {
+        padding: 1rem;
+    }
+    
+    .back-button {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* ===== ANIMACIONES ADICIONALES ===== */
+/* Animación para la imagen principal */
+.province-detail-image {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Animación escalonada para las estadísticas */
+.stat-item {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.stat-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stat-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Animación escalonada para los atractivos */
+.province-attractions li {
+    animation: slideInUp 0.6s ease-out;
+}
+
+.province-attractions li:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.province-attractions li:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.province-attractions li:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.province-attractions li:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+/* Definición de animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== MEJORAS VISUALES ===== */
+/* Línea superior decorativa en el detalle */
+.province-detail {
+    position: relative;
+    overflow: hidden;
+}
+
+.province-detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--verde-nilo), var(--dorado-suave), var(--verde-claro));
+}
+
+/* Efecto de hover en las estadísticas */
+.stat-item:hover strong {
+    color: var(--verde-nilo);
+}
+
+/* Scroll suave para dispositivos móviles */
+@media (max-width: 768px) {
+    #province-details-container {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ===== SECCIÓN PAQUETES TURÍSTICOS ===== */
+
+/* Contenedor principal - Define el ancho máximo y centrado de la sección */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 2rem 2rem;
+}
+
+/* Título principal de la sección de paquetes */
+.container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+}
+
+/* Grid principal para organizar las tarjetas de paquetes */
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== TARJETAS DE PAQUETES ===== */
+
+/* Estructura base de cada tarjeta de paquete */
+.package-card {
+    background: var(--blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--sombra-suave);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid var(--gris-claro);
+}
+
+/* Efecto hover para elevación de tarjeta */
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px var(--sombra-media);
+}
+
+/* Efecto hover alternativo para tarjetas */
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--sombra-media);
+}
+
+/* ===== IMAGEN DE LA TARJETA ===== */
+
+/* Imagen principal del paquete turístico */
+.package-card .package-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--verde-nilo);
+}
+
+/* Imagen con gradiente para tarjetas sin imagen real */
+.package-image {
+    height: 160px;
+    background: linear-gradient(135deg, var(--verde-claro), var(--verde-nilo));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ===== CONTENIDO DE LA TARJETA ===== */
+
+/* Contenedor del contenido interno de la tarjeta */
+.package-content {
+    padding: 1.5rem;
+}
+
+/* Título del paquete turístico */
+.package-card h3 {
+    color: var(--verde-nilo);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Título alternativo para paquetes */
+.package-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+}
+
+/* ===== INFORMACIÓN DEL PAQUETE ===== */
+
+/* Contenedor para información básica (duración y precio) */
+.package-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+/* Duración del paquete turístico */
+.package-card .package-duration {
+    color: var(--gris-medio);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Duración alternativa sin icono */
+.package-duration {
+    color: var(--gris-oscuro);
+    font-size: 0.9rem;
+}
+
+/* Icono de reloj para la duración */
+.package-card .package-duration::before {
+    content: "🕐";
+    font-size: 1rem;
+}
+
+/* Precio del paquete turístico */
+.package-card .package-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--dorado-suave);
+    margin-bottom: 1rem;
+}
+
+/* Precio alternativo más pequeño */
+.package-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--dorado-suave);
+}
+
+/* Destinos incluidos en el paquete */
+.package-card .package-destinations {
+    color: var(--gris-oscuro);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+/* Destinos con estilo alternativo */
+.package-destinations {
+    color: var(--verde-nilo);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* ===== TAGS DE INCLUSIONES ===== */
+
+/* Contenedor de tags que muestran lo incluido */
+.package-card .package-includes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor alternativo para includes */
+.package-includes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Tags individuales de inclusiones */
+.package-card .include-tag {
+    background: var(--verde-claro);
+    color: var(--blanco);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Tags alternativos con fondo beige */
+.include-tag {
+    background: var(--beige-calido);
+    color: var(--verde-oscuro);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+/* ===== ETIQUETA DE TIPO DE PAQUETE ===== */
+
+/* Etiqueta flotante que indica el tipo de paquete */
+.package-card .package-type {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--verde-nilo);
+    color: var(--blanco);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Estilo especial para paquetes combo */
+.package-card .package-type.combo {
+    background: var(--dorado-suave);
+}
+
+/* ===== BOTONES ===== */
+
+/* Botón para ver detalles del paquete */
+.view-details-btn {
+    background: var(--verde-nilo);
+    color: var(--crema);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+/* Efecto hover del botón de detalles */
+.view-details-btn:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-2px);
+}
+
+/* Botón para regresar a la vista anterior */
+.back-button {
+    display: inline-block;
+    background: var(--verde-nilo);
+    color: var(--blanco);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón de regreso */
+.back-button:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-2px);
+}
+
+/* Flecha del botón de regreso */
+.back-button::before {
+    content: "← ";
+    margin-right: 0.5rem;
+}
+
+/* ===== VISTA DETALLADA DEL PAQUETE ===== */
+
+/* Contenedor principal para la vista detallada */
+.package-details-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Tarjeta principal del detalle del paquete */
+.package-detail {
+    background: var(--blanco);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--sombra-suave);
+    border: 1px solid var(--gris-claro);
+    animation: fadeInUp 0.6s ease;
+}
+
+/* ===== HEADER DEL DETALLE ===== */
+
+/* Cabecera del detalle con imagen e información */
+.package-detail-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--crema), var(--beige-calido));
+}
+
+/* Imagen principal en la vista detallada */
+.package-detail-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--sombra-suave);
+}
+
+/* Título principal del detalle */
+.package-detail-info h2 {
+    color: var(--verde-nilo);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Contenedor de estadísticas del paquete */
+.package-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Cada elemento de estadística */
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Etiquetas de las estadísticas */
+.stat-item strong {
+    color: var(--verde-nilo);
+    min-width: 100px;
+}
+
+/* ===== CONTENIDO DEL DETALLE ===== */
+
+/* Contenedor del contenido detallado */
+.package-detail-content {
+    padding: 2rem;
+}
+
+/* Títulos de sección en el detalle */
+.package-detail-content h3 {
+    color: var(--verde-nilo);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--verde-claro);
+}
+
+/* Descripción del paquete */
+.package-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gris-oscuro);
+    margin-bottom: 2rem;
+}
+
+/* Destinos en la vista detallada */
+.package-destinations p {
+    font-size: 1.1rem;
+    color: var(--gris-oscuro);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* ===== ITINERARIO ===== */
+
+/* Sección del itinerario */
+.package-itinerary {
+    margin-bottom: 2rem;
+}
+
+/* Título del itinerario */
+.package-itinerary h4 {
+    color: var(--verde-nilo);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor de días del itinerario */
+.itinerary {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Cada día del itinerario */
+.day {
+    background: var(--gris-claro);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--verde-nilo);
+}
+
+/* Título de cada día */
+.day h5 {
+    color: var(--verde-nilo);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Lista de actividades por día */
+.day ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Cada actividad del día */
+.day ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--gris-oscuro);
+}
+
+/* Icono de check para actividades */
+.day ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--verde-nilo);
+    font-weight: bold;
+}
+
+/* ===== LISTAS DE INCLUYE/NO INCLUYE ===== */
+
+/* Secciones de inclusiones y exclusiones */
+.package-includes,
+.package-not-includes {
+    margin-bottom: 2rem;
+}
+
+/* Listas de elementos incluidos y no incluidos */
+.package-includes ul,
+.package-not-includes ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.8rem;
+}
+
+/* Elementos de las listas */
+.package-includes ul li,
+.package-not-includes ul li {
+    padding: 0.8rem;
+    border-radius: 8px;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+/* Elementos incluidos en el paquete */
+.package-includes ul li {
+    background: rgba(143, 188, 143, 0.1);
+    border-left: 3px solid var(--verde-claro);
+}
+
+/* Icono de check para elementos incluidos */
+.package-includes ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0.8rem;
+    color: var(--verde-nilo);
+    font-weight: bold;
+}
+
+/* Elementos no incluidos en el paquete */
+.package-not-includes ul li {
+    background: rgba(204, 204, 204, 0.1);
+    border-left: 3px solid var(--gris-medio);
+}
+
+/* Icono de X para elementos no incluidos */
+.package-not-includes ul li::before {
+    content: "✗";
+    position: absolute;
+    left: 0.8rem;
+    color: var(--gris-medio);
+    font-weight: bold;
+}
+
+/* ===== ANIMACIONES Y EFECTOS ===== */
+
+/* Transición para el contenido de la tarjeta */
+.package-card .package-content {
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover adicional para el contenido */
+.package-card:hover .package-content {
+    transform: translateY(-5px);
+}
+
+/* Transición para los tags de inclusiones */
+.package-card .include-tag {
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover para los tags */
+.package-card .include-tag:hover {
+    transform: scale(1.05);
+    background: var(--verde-nilo);
+}
+
+/* Overlay sutil para las tarjetas */
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(74, 124, 89, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Activación del overlay en hover */
+.package-card:hover::before {
+    opacity: 1;
+}
+
+/* Navegación suave en la página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animación de aparición para vista detallada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVIDAD ===== */
+
+/* Adaptación para tablets */
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .package-card {
+        margin: 0 1rem;
+    }
+    
+    .package-detail-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .package-detail-info h2 {
+        font-size: 2rem;
+    }
+    
+    .package-detail-content {
+        padding: 1.5rem;
+    }
+    
+    .package-includes ul,
+    .package-not-includes ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        justify-content: center;
+    }
+}
+
+/* Adaptación para móviles */
+@media (max-width: 480px) {
+    .package-detail-header {
+        padding: 1rem;
+    }
+    
+    .package-detail-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .package-detail-content {
+        padding: 1rem;
+    }
+    
+    .package-detail-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .back-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== SECCIÓN RESERVACIÓN ===== */
+
+/* Contenedor principal de la sección de reservas */
+.reservation-section {
+    padding: 120px 2rem 2rem;
+}
+
+/* Título principal de la sección de reservas */
+.reservation-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 2rem;
+}
+
+/* ===== FORMULARIO DE RESERVA ===== */
+
+/* Contenedor principal del formulario de reserva */
+.reservation-form {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--sombra-media);
+    margin-bottom: 2rem;
+}
+
+/* Fila de campos del formulario - Grid responsivo */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Grupo individual de campo del formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas de los campos del formulario */
+.form-group label {
+    color: var(--verde-oscuro);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Campos de entrada: input, select y textarea */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 2px solid var(--gris-medio);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Estado de enfoque para campos del formulario */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--verde-nilo);
+    box-shadow: 0 0 10px var(--sombra-suave);
+}
+
+/* Grupo especial para checkboxes */
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Estilo específico para checkboxes */
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+/* Botón de envío del formulario */
+.submit-btn {
+    background: linear-gradient(135deg, var(--verde-nilo), var(--verde-oscuro));
+    color: var(--crema);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Efecto hover del botón de envío */
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--sombra-fuerte);
+}
+
+/* ===== INFORMACIÓN DE RESERVA ===== */
+
+/* Contenedor de información adicional sobre reservas */
+.reservation-info {
+    background: var(--beige-calido);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--dorado-suave);
+}
+
+/* Título de la información de reserva */
+.reservation-info h3 {
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+}
+
+/* Lista de información de reserva */
+.reservation-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Elementos de la lista de información */
+.reservation-info li {
+    color: var(--gris-oscuro);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+/* Icono de check para elementos de información */
+.reservation-info li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--verde-nilo);
+    font-weight: bold;
+}
+
+/* ===== SECCIÓN ATENCIÓN AL CLIENTE ===== */
+
+/* Contenedor principal de atención al cliente */
+.customer-service {
+    padding: 120px 2rem 2rem;
+}
+
+/* Título de la sección de atención al cliente */
+.customer-service h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 2rem;
+}
+
+/* ===== INFORMACIÓN DE CONTACTO ===== */
+
+/* Grid de información de contacto */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Cada sección de contacto */
+.contact-section {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--sombra-suave);
+}
+
+/* Títulos de las secciones de contacto */
+.contact-section h3 {
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--dorado-suave);
+    padding-bottom: 0.5rem;
+}
+
+/* Información de contacto: teléfono, email, etc. */
+.contact-details p,
+.social-media p,
+.office-info p {
+    color: var(--gris-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+/* ===== SECCIÓN DE QUEJAS Y SUGERENCIAS ===== */
+
+/* Contenedor de la sección de quejas */
+.complaints-section {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--sombra-media);
+}
+
+/* Título de la sección de quejas */
+.complaints-section h3 {
+    color: var(--verde-oscuro);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Formulario de quejas y sugerencias */
+.complaints-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== CÁLCULO DE TOTAL ===== */
+
+/* Contenedor para mostrar el total de la reserva */
+.total-display {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+/* Título del resumen de costos */
+.total-info h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+/* Contenedor del desglose de costos */
+.total-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Cada línea del desglose de costos */
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Última línea del desglose sin borde */
+.total-line:last-child {
+    border-bottom: none;
+}
+
+/* Línea del total final */
+.total-final {
+    font-size: 1.1em;
+    color: #000000ff;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #1e8127ff;
+}
+
+/* Información sobre el adelanto */
+.advance {
+    color: #000000ff;
+    font-weight: 500;
+}
+
+/* ===== VALIDACIÓN DE FORMULARIO ===== */
+
+/* Mensajes de error en campos */
+.field-error {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Estilo para campos con error */
+.error {
+    border-color: #dc3545 !important;
+}
+
+/* Estado de carga del botón de envío */
+.submit-btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Spinner de carga */
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+}
+
+/* Animación de rotación del spinner */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== MENSAJE DE ÉXITO ===== */
+
+/* Overlay del mensaje de éxito */
+.success-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Contenedor del mensaje de éxito */
+.success-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: slideIn 0.4s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Animación de deslizamiento */
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Icono del mensaje de éxito */
+.success-icon {
+    margin-bottom: 20px;
+}
+
+/* Título del mensaje de éxito */
+.success-content h3 {
+    color: #28a745;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* ===== DETALLES DE RESERVA ===== */
+
+/* Contenedor de detalles de la reserva */
+.reservation-details {
+    text-align: left;
+    margin: 20px 0;
+}
+
+/* Caja de detalles */
+.details-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #28a745;
+}
+
+/* Cada elemento de detalle */
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Último elemento sin borde */
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+/* Etiqueta de cada detalle */
+.detail-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+/* Valor de cada detalle */
+.detail-value {
+    color: #212529;
+    font-weight: 600;
+}
+
+/* ===== PASOS SIGUIENTES ===== */
+
+/* Sección de pasos siguientes */
+.next-steps {
+    background: #e7f3ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #007bff;
+}
+
+/* Título de pasos siguientes */
+.next-steps h4 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Lista de pasos siguientes */
+.next-steps ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+/* Cada paso siguiente */
+.next-steps li {
+    margin: 8px 0;
+    color: #495057;
+}
+
+/* ===== INFORMACIÓN DE CONTACTO EN MENSAJE ===== */
+
+/* Información de contacto en el mensaje de éxito */
+.contact-info {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #ffc107;
+}
+
+/* Párrafos de información de contacto */
+.contact-info p {
+    margin: 5px 0;
+    color: #495057;
+}
+
+/* ===== BOTÓN DE CIERRE ===== */
+
+/* Botón para cerrar el mensaje de éxito */
+.close-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+/* Efecto hover del botón de cierre */
+.close-btn:hover {
+    background: #218838;
+}
+
+/* ===== RESPONSIVIDAD ===== */
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+    .success-content {
+        margin: 10px;
+        padding: 20px;
+        max-width: 95%;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* ===== SECCIÓN DESARROLLADORES ===== */
+/* Contenedor principal para mostrar información del equipo de desarrolladores */
+.developers-section {
+    padding: 120px 2rem 2rem;
+    background: var(--gris-claro);
+}
+
+/* Título principal de la sección de desarrolladores */
+.developers-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 1rem;
+}
+
+/* Grid responsivo para organizar las tarjetas de desarrolladores */
+.developers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Tarjeta individual para cada desarrollador con efecto hover */
+.developer-card {
+    background: var(--blanco);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 25px var(--sombra-suave);
+    transition: all 0.3s ease;
+}
+
+/* Efecto de elevación al pasar el cursor sobre la tarjeta */
+.developer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--sombra-media);
+}
+
+/* Contenedor circular para la foto del desarrollador */
+.developer-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border: 4px solid var(--verde-nilo);
+}
+
+/* Imagen del avatar ajustada al contenedor circular */
+.developer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Nombre del desarrollador */
+.developer-info h3 {
+    color: var(--verde-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+/* Edad del desarrollador */
+.developer-age {
+    color: var(--gris-oscuro);
+    margin-bottom: 1rem;
+}
+
+/* Contenedor para los enlaces a redes sociales */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Estilo para cada enlace de red social con efecto hover */
+.social-link {
+    display: inline-block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: var(--beige-calido);
+    transition: all 0.3s ease;
+}
+
+/* Efecto de hover para los enlaces sociales */
+.social-link:hover {
+    background: var(--verde-nilo);
+    transform: scale(1.1);
+}
+
+/* ===== ESTILOS DE VALIDACIÓN Y NOTIFICACIONES ===== */
+
+/* Estilo para campos de formulario con errores */
+.error {
+    border-color: #e74c3c !important;
+    background-color: #fdf2f2 !important;
+}
+
+/* Mensaje de error para mostrar debajo de campos inválidos */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+/* Notificación flotante en la esquina superior derecha */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+/* Animación para mostrar la notificación */
+.notification.show {
+    transform: translateX(0);
+}
+
+/* Notificación de éxito (verde) */
+.notification.success {
+    background-color: #27ae60;
+}
+
+/* Notificación de error (rojo) */
+.notification.error {
+    background-color: #e74c3c;
+}
+
+/* Notificación de advertencia (amarillo) */
+.notification.warning {
+    background-color: #f39c12;
+}
+
+/* Notificación informativa (verde oscuro) */
+.notification.info {
+    background-color: #25771a;
+}
+
+/* ===== BOTONES DE ACCIÓN ===== */
+
+/* Botón de WhatsApp para contacto directo */
+.whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.8em;
+}
+
+/* Botón para abrir ubicación en mapa */
+.map-btn {
+    background-color: #41831a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.8em;
+}
+
+/* Botón para abrir preguntas frecuentes */
+.faq-btn {
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.8em;
+    float: right;
+}
+
+/* ===== INDICADORES DE ESTADO ===== */
+
+/* Contenedor para mostrar si el negocio está abierto o cerrado */
+.business-status {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Estilo para cuando el negocio está abierto */
+.status-open {
+    color: #27ae60;
+}
+
+/* Estilo para cuando el negocio está cerrado */
+.status-closed {
+    color: #e74c3c;
+}
+
+/* ===== INFORMACIÓN DE SEGUIMIENTO ===== */
+
+/* Panel informativo para mostrar detalles de seguimiento */
+.tracking-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border-left: 4px solid #368822;
+}
+
+/* ===== CHAT FLOTANTE ===== */
+
+/* Botón de chat flotante en la esquina inferior derecha */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ===== MODAL DE PREGUNTAS FRECUENTES ===== */
+
+/* Overlay oscuro para el modal de FAQ */
+.faq-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+/* Contenedor del contenido del modal */
+.faq-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Cada elemento individual de pregunta frecuente */
+.faq-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Título de cada pregunta frecuente */
+.faq-item h4 {
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+/* Respuesta de cada pregunta frecuente */
+.faq-item p {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* ===== FOOTER ===== */
+
+/* Pie de página con gradiente */
+footer {
+    background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--negro) 100%);
+    color: var(--crema);
+    padding: 3rem 2rem 1rem;
+    margin-top: 4rem;
+}
+
+/* Grid responsivo para el contenido del footer */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos de las secciones del footer */
+.footer-section h3,
+.footer-section h4 {
+    color: var(--dorado-suave);
+    margin-bottom: 1rem;
+}
+
+/* Listas del footer sin viñetas */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Elementos de las listas del footer */
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Enlaces del footer con efecto hover */
+.footer-section ul li a {
+    color: var(--crema);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover para enlaces del footer */
+.footer-section ul li a:hover {
+    color: var(--verde-claro);
+}
+
+/* Sección inferior del footer con borde superior */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gris-oscuro);
+    margin-top: 2rem;
+}
+
+/* ===== ANIMACIONES ===== */
+
+/* Animación de entrada con desvanecimiento y movimiento hacia arriba */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Estilos para tablets y dispositivos medianos */
+@media (max-width: 768px) {
+    /* Menú de navegación en columna */
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    /* Título principal más pequeño */
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    /* Subtítulo ajustado */
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    /* Grid de provincias en una columna */
+    .provinces-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Grid de paquetes en una columna */
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Formulario en una columna */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Información de contacto en una columna */
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Grid de desarrolladores ajustado para tablets */
+    .developers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* Estilos para móviles pequeños */
+@media (max-width: 480px) {
+    /* Navegación en columna con espaciado reducido */
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    /* Título principal aún más pequeño */
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    /* Información de la empresa con menos padding */
+    .company-info {
+        padding: 1.5rem;
+    }
+}

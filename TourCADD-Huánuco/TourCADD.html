@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración del documento y codificación de caracteres -->
+    <meta charset="UTF-8">
+    
+    <!-- Configuración para dispositivos móviles (responsivo) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>TourCADD - Turismo Interprovincial Huánuco</title>
+    
+    <!-- Icono que aparece en la pestaña del navegador -->
+    <link rel="icon" href="IMAGENES SECUNDARIAS/logo.png">
+    
+    <!-- Hoja de estilos CSS personalizada -->
+    <link rel="stylesheet" href="recursos.css">
+    
+    <!-- Framework Bootstrap para diseño responsivo y componentes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Iconos de Bootstrap para elementos visuales -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <!-- Librería de iconos Font Awesome para elementos decorativos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Encabezado principal de la página -->
+    <header>
+        <!-- Barra de navegación -->
+        <nav>
+            <!-- Logo de la empresa con imagen y texto -->
+            <div class="logo">
+                <img src="IMAGENES SECUNDARIAS/logo.png" alt="TourCADD Logo" class="logo-icon">
+                <div class="logo-text">
+                    <h1>TourCADD</h1>
+                    <p>Turismo Huánuco</p>
+                </div>
+            </div>
+            
+            <!-- Botón hamburguesa para menú móvil -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Lista de navegación principal -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" onclick="showSection('inicio')">Inicio</a></li>
+                <li><a href="#provincias" onclick="showSection('provincias')">Provincias</a></li>
+                <li><a href="#paquetes" onclick="showSection('paquetes')">Paquetes Turísticos</a></li>
+                <li><a href="#reservacion" onclick="showSection('reservacion')">Reservación</a></li>
+                <li><a href="#atencion" onclick="showSection('atencion')">Atención al Cliente</a></li>
+                <li><a href="#desarrolladores" onclick="showSection('desarrolladores')">Desarrolladores</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección principal de inicio con contenido de bienvenida -->
+    <section id="inicio" class="hero content-section active">
+        <div class="hero-content">
+            <!-- Título principal de bienvenida -->
+            <h2>Bienvenidos a TourCADD</h2>
+            
+            <!-- Subtítulo descriptivo -->
+            <p class="subtitle">Descubre la magia del turismo interprovincial en Huánuco</p>
+            
+            <!-- Información detallada sobre la empresa -->
+            <div class="company-info">
+                <h3>Sobre Nosotros</h3>
+                <p>TourCADD es una empresa nueva y dinámica que promueve el turismo en la región de Huánuco, conectando las 11 provincias que conforman este hermoso departamento. Nuestra misión es facilitar el acceso a los destinos turísticos más increíbles de Huánuco, ofreciendo paquetes turísticos completos y servicios de calidad.</p>
+                <p>En esta página web podrás encontrar información detallada sobre cada provincia, explorar nuestros paquetes turísticos diseñados especialmente para ti, y realizar reservaciones de manera fácil y segura. Nos especializamos en crear experiencias únicas que te permitan conocer la riqueza cultural, natural e histórica de Huánuco.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Provincias - Muestra las 11 provincias de Huánuco -->
+    <section id="provincias" class="provinces-section content-section">
+        <!-- Encabezado de la sección con título y descripción -->
+        <div class="section-header">
+            <h2>Las 11 Provincias de Huánuco</h2>
+            <p class="section-description">Descubre cada una de las provincias que conforman el departamento de Huánuco y elige tu próximo destino</p>
+            <!-- Botón para regresar a la vista general (inicialmente oculto) -->
+            <button class="back-button" onclick="showAllProvinces()" style="display: none;"> Volver a todas las provincias</button>
+        </div>
+        
+        <!-- Grilla de tarjetas con información de cada provincia -->
+        <div id="provinces-grid" class="provinces-grid">
+            <!-- Tarjeta de la provincia Huánuco -->
+            <div class="province-card" onclick="showProvinceDetail('huanuco')">
+                <img src="IMAGENES/huanuco.jpg" alt="Provincia de Huánuco">
+                <h3>Huánuco</h3>
+                <p>Capital del departamento, conocida por su rica historia colonial y el famoso Templo de Kotosh. Ciudad de eterna primavera con arquitectura colonial y moderna.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Ambo -->
+            <div class="province-card" onclick="showProvinceDetail('ambo')">
+                <img src="IMAGENES/ambo.jpg" alt="Provincia de Ambo">
+                <h3>Ambo</h3>
+                <p>Provincia minera por excelencia, famosa por sus paisajes andinos y el nacimiento del río Huallaga. Ideal para turismo de aventura y naturaleza.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Dos de Mayo -->
+            <div class="province-card" onclick="showProvinceDetail('dos-de-mayo')">
+                <img src="IMAGENES/dosdemayo.jpeg" alt="Provincia de Dos de Mayo">
+                <h3>Dos de Mayo</h3>
+                <p>Tierra de la memorable Batalla de Abtao, con hermosos paisajes altoandinos y tradiciones culturales ancestrales. Capital: La Unión.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Huacaybamba -->
+            <div class="province-card" onclick="showProvinceDetail('huacaybamba')">
+                <img src="IMAGENES/huacaybamba.jpg" alt="Provincia de Huacaybamba">
+                <h3>Huacaybamba</h3>
+                <p>Provincia de contrastes geográficos, desde la sierra hasta la selva alta. Famosa por sus cataratas y biodiversidad única.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Huamalíes -->
+            <div class="province-card" onclick="showProvinceDetail('huamalies')">
+                <img src="IMAGENES/huamalies.jpg" alt="Provincia de Huamalíes">
+                <h3>Huamalíes</h3>
+                <p>Conocida por sus hermosos paisajes de puna y sus tradiciones ganaderas. Ideal para el turismo rural y ecoturismo.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Leoncio Prado -->
+            <div class="province-card" onclick="showProvinceDetail('leoncio-prado')">
+                <img src="IMAGENES/leoncio prado.jpg" alt="Provincia de Leoncio Prado">
+                <h3>Leoncio Prado</h3>
+                <p>Puerta de entrada a la selva huanuqueña, con Tingo María como capital. Famosa por la Cueva de las Lechuzas y el Parque Nacional Tingo María.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Marañón -->
+            <div class="province-card" onclick="showProvinceDetail('marañon')">
+                <img src="IMAGENES/marañon.jpg" alt="Provincia de Marañón">
+                <h3>Marañón</h3>
+                <p>Provincia amazónica con una rica biodiversidad y paisajes selváticos únicos. Ideal para turismo de naturaleza y aventura.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Pachitea -->
+            <div class="province-card" onclick="showProvinceDetail('pachitea')">
+                <img src="IMAGENES/pachitea.jpg" alt="Provincia de Pachitea">
+                <h3>Pachitea</h3>
+                <p>Provincia selvática con gran diversidad biológica y comunidades nativas. Perfecta para turismo ecológico y cultural.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Puerto Inca -->
+            <div class="province-card" onclick="showProvinceDetail('puerto-inca')">
+                <img src="IMAGENES/puerto inca.jpg" alt="Provincia de Puerto Inca">
+                <h3>Puerto Inca</h3>
+                <p>La provincia más joven de Huánuco, ubicada en la selva baja. Rica en recursos naturales y culturas amazónicas.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Lauricocha -->
+            <div class="province-card" onclick="showProvinceDetail('lauricocha')">
+                <img src="IMAGENES/lauricocha.jpg" alt="Provincia de Lauricocha">
+                <h3>Lauricocha</h3>
+                <p>Hogar de la famosa Laguna de Lauricocha, cuna de importantes restos arqueológicos y paisajes altoandinos espectaculares.</p>
+            </div>
+            
+            <!-- Tarjeta de la provincia Yarowilca -->
+            <div class="province-card" onclick="showProvinceDetail('yarowilca')">
+                <img src="IMAGENES/yarowilca.jpg" alt="Provincia de Yarowilca">
+                <h3>Yarowilca</h3>
+                <p>Provincia de tradiciones ancestrales y paisajes andinos. Conocida por sus festividades culturales y turismo vivencial.</p>
+            </div>
+        </div>
+
+        <!-- Contenedor para mostrar detalles específicos de cada provincia -->
+        <div id="province-details-container" style="display: none;"></div>
+    </section>
+
+    <!-- Sección de Paquetes Turísticos -->
+    <div class="container">
+        <!-- Título y descripción de la sección -->
+        <h2>Paquetes Turisticos</h2>
+        <p class="section-description">Los mejores paquetes turisticos que ofrecemos a nuestros viajeros</p>
+
+        <section id="paquetes">
+            <!-- Grilla de paquetes turísticos disponibles -->
+            <div class="packages-grid">
+                
+                <!-- PAQUETES INDIVIDUALES POR PROVINCIA -->
+                
+                <!-- Paquete Huánuco Colonial -->
+                <div class="package-card" onclick="showPackageDetail('huanuco-colonial')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/huanuco.jpg" alt="Huánuco Colonial">
+                    <div class="package-content">
+                        <h3>Huánuco Colonial</h3>
+                        <div class="package-info">
+                            <div class="package-duration">3 días / 2 noches</div>
+                            <div class="package-price">S/ 280</div>
+                        </div>
+                        <div class="package-destinations">Kotosh, Centro Histórico, Iglesia San Francisco</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Desayunos</span>
+                            <span class="include-tag">Tours guiados</span>
+                            <span class="include-tag">Transporte</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Aventura en Ambo -->
+                <div class="package-card" onclick="showPackageDetail('aventura-ambo')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/ambo.jpg" alt="Aventura en Ambo">
+                    <div class="package-content">
+                        <h3>Aventura en Ambo</h3>
+                        <div class="package-info">
+                             <div class="package-duration">2 días / 1 noche</div>
+                            <div class="package-price">S/ 220</div>
+                        </div>
+                        <div class="package-destinations">Minas, Mirador del Huallaga, Trekking</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Alimentación completa</span>
+                            <span class="include-tag">Guía especializado</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Tingo María Mágico -->
+                <div class="package-card" onclick="showPackageDetail('tingo-maria')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/tingo maria.jpg" alt="Tingo María Mágico">
+                    <div class="package-content">
+                        <h3>Tingo María Mágico</h3>
+                        <div class="package-info">
+                            <div class="package-duration">4 días / 3 noches</div>
+                            <div class="package-price">S/ 450</div>
+                        </div>
+                        <div class="package-destinations">Cueva de las Lechuzas, Parque Nacional, Velo de la Novia</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Todas las comidas</span>
+                            <span class="include-tag">Tours ecológicos</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <!-- Paquete Lauricocha Ancestral -->
+                <div class="package-card" onclick="showPackageDetail('lauricocha')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/lauricocha.jpg" alt="Lauricocha Ancestral">
+                    <div class="package-content">
+                        <h3>Lauricocha Ancestral</h3>
+                        <div class="package-info">
+                            <div class="package-duration">3 días / 2 noches</div>
+                            <div class="package-price">S/ 350</div>
+                        </div>
+                        <div class="package-destinations">Laguna Lauricocha, Sitios arqueológicos</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Alimentación</span>
+                            <span class="include-tag">Transporte 4x4</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Dos de Mayo Histórico -->
+                <div class="package-card" onclick="showPackageDetail('dos-de-mayo')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/dos de mayo.jpg" alt="Dos de Mayo Histórico">
+                    <div class="package-content">
+                        <h3>Dos de Mayo Histórico</h3>
+                        <div class="package-info">
+                            <div class="package-duration">2 días / 1 noche</div>
+                            <div class="package-price">S/ 200</div>
+                        </div>
+                        <div class="package-destinations">La Unión, Sitios históricos, Paisajes andinos</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Guía histórico</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Huacaybamba Natural -->
+                <div class="package-card" onclick="showPackageDetail('huacaybamba')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/huacaybamba.jpg" alt="Huacaybamba Natural">
+                    <div class="package-content">
+                        <h3>Huacaybamba Natural</h3>
+                        <div class="package-info">
+                            <div class="package-duration">3 días / 2 noches</div>
+                            <div class="package-price">S/ 300</div>
+                        </div>
+                        <div class="package-destinations">Cataratas, Bosques nublados, Comunidades</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje rural</span>
+                            <span class="include-tag">Comidas típicas</span>
+                            <span class="include-tag">Caminatas</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Huamalíes Rural -->
+                <div class="package-card" onclick="showPackageDetail('huamalies')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/huamalies.jpg" alt="Huamalíes Rural">
+                    <div class="package-content">
+                        <h3>Huamalíes Rural</h3>
+                        <div class="package-info">
+                            <div class="package-duration">2 días / 1 noche</div>
+                            <div class="package-price">S/ 180</div>
+                        </div>
+                        <div class="package-destinations">Paisajes de puna, Ganadería tradicional</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje en casa rural</span>
+                            <span class="include-tag">Comidas caseras</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Marañón Selvático -->
+                <div class="package-card" onclick="showPackageDetail('marañon')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/marañon.jpg" alt="Marañon Selvatico">
+                    <div class="package-content">
+                        <h3>Marañon Selvatico</h3>
+                        <div class="package-info">
+                            <div class="package-duration">4 días / 3 noches</div>
+                            <div class="package-price">S/ 500</div>
+                        </div>
+                        <div class="package-destinations">Río Marañón, Bosques amazónicos</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Tours en bote</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Pachitea: Corazón Verde -->
+                <div class="package-card" onclick="showPackageDetail('pachitea')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/pachitea.jpg" alt="Pachitea: Corazón Verde de Huánuco">
+                    <div class="package-content">
+                        <h3>Pachitea: Corazón Verde de Huánuco</h3>
+                        <div class="package-info">
+                            <div class="package-duration">5 días / 4 noches</div>
+                            <div class="package-price">S/ 600</div>
+                        </div>
+                        <div class="package-destinations">Comunidades nativas, Pesca deportiva</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Guía nativo</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Puerto Inca Explorador -->
+                <div class="package-card" onclick="showPackageDetail('puerto-inca')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/puerto inca.jpg" alt="Puerto Inca Explorador">
+                    <div class="package-content">
+                        <h3>Puerto Inca Explorador</h3>
+                        <div class="package-info">
+                            <div class="package-duration">3 días / 2 noches</div>
+                            <div class="package-price">S/ 400</div>
+                        </div>
+                        <div class="package-destinations">Selva baja, Ríos amazónicos</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Transporte fluvial</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Yarowilca Cultural -->
+                <div class="package-card" onclick="showPackageDetail('yarowilca')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/yarowilca.jpg" alt="Yarowilca Cultural">
+                    <div class="package-content">
+                        <h3>Yarowilca Cultural</h3>
+                        <div class="package-info">
+                            <div class="package-duration">2 días / 1 noche</div>
+                            <div class="package-price">S/ 190</div>
+                        </div>
+                        <div class="package-destinations">Festividades, Turismo vivencial</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Actividades culturales</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- PAQUETES COMBINADOS DE MÚLTIPLES PROVINCIAS -->
+                
+                <!-- Paquete Ruta Colonial + Aventura -->
+                <div class="package-card" onclick="showPackageDetail('ruta-colonial')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/ruta colonial.jpg" alt="Ruta Colonial + Aventura">
+                    <div class="package-content">
+                        <h3>Ruta Colonial + Aventura</h3>
+                        <div class="package-info">
+                            <div class="package-duration">5 días / 4 noches</div>
+                            <div class="package-price">S/ 650</div>
+                        </div>
+                        <div class="package-destinations">Huánuco + Ambo + Tingo María</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Transporte</span>
+                            <span class="include-tag">Guías</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <!-- Paquete Circuito Andino -->
+                 <div class="package-card" onclick="showPackageDetail('circuito-andino')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/circuito.jpg" alt="Circuito Andino">
+                    <div class="package-content">
+                        <h3>Circuito Andino</h3>
+                        <div class="package-info">
+                            <div class="package-duration">6 días / 5 noches</div>
+                            <div class="package-price">S/ 800</div>
+                        </div>
+                        <div class="package-destinations">Lauricocha + Dos de Mayo + Huamalíes</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Transporte 4x4</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+                
+                <!-- Paquete Experiencia Amazónica -->
+                <div class="package-card" onclick="showPackageDetail('amazonica')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/experiencia amazonica.jpg" alt="Experiencia Amazónica">
+                    <div class="package-content">
+                        <h3>Experiencia Amazónica</h3>
+                        <div class="package-info">
+                            <div class="package-duration">7 días / 6 noches</div>
+                            <div class="package-price">S/ 1200</div>
+                        </div>
+                        <div class="package-destinations">Leoncio Prado + Marañón + Pachitea</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Hospedaje</span>
+                            <span class="include-tag">Comidas</span>
+                            <span class="include-tag">Tours especializados</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+    
+                <!-- Paquete Gran Tour Huánuco (Completo) -->
+                <div class="package-card" onclick="showPackageDetail('gran-tour')">
+                    <img class="package-image" src="IMAGENES PAQUETES TURISTICOS/gran tour.jpg" alt="Gran Tour Huánuco">
+                    <div class="package-content">
+                        <h3>Gran Tour Huánuco</h3>
+                        <div class="package-info">
+                            <div class="package-duration">10 días / 9 noches</div>
+                            <div class="package-price">S/ 1800</div>
+                        </div>
+                        <div class="package-destinations">Recorrido por las 11 provincias</div>
+                        <div class="package-includes">
+                            <span class="include-tag">Todo incluido</span>
+                            <span class="include-tag">Guías especializados</span>
+                        </div>
+                        <button class="view-details-btn">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón para regresar a la vista general de paquetes -->
+            <button class="back-button" onclick="showSection('paquetes')">
+                 Volver a Paquetes
+            </button>
+        </section>
+    </div>
+
+    <!-- Sección Reservación -->
+    <!-- Esta sección permite a los usuarios realizar reservas de paquetes turísticos de forma fácil y completa -->
+    <section id="reservacion" class="reservation-section content-section">
+        <h2>Reservación</h2>
+        <div class="reservation-form">
+            <!-- Formulario principal para capturar todos los datos necesarios para la reserva -->
+            <form>
+                <!-- Datos personales básicos del cliente -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-name">Nombre Completo:</label>
+                        <input type="text" id="res-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-email">Email:</label>
+                        <input type="email" id="res-email" name="email" required>
+                    </div>
+                </div>
+                
+                <!-- Información de contacto y documentación -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-phone">Teléfono:</label>
+                        <input type="tel" id="res-phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-dni">DNI:</label>
+                        <input type="text" id="res-dni" name="dni" required>
+                    </div>
+                </div>
+                
+                <!-- Selección de paquete turístico y número de viajeros -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-package">Paquete Turístico:</label>
+                        <!-- Lista completa de todos los paquetes disponibles con precios -->
+                        <select id="res-package" name="package" required>
+                            <option value="">Seleccione un paquete...</option>
+                            <option value="huanuco-colonial">Huánuco Colonial - S/ 280</option>
+                            <option value="aventura-ambo">Aventura en Ambo - S/ 220</option>
+                            <option value="tingo-maria">Tingo María Mágico - S/ 450</option>
+                            <option value="lauricocha">Lauricocha Ancestral - S/ 350</option>
+                            <option value="dos-mayo">Dos de Mayo Histórico - S/ 200</option>
+                            <option value="huacaybamba">Huacaybamba Natural - S/ 300</option>
+                            <option value="huamalies">Huamalíes Rural - S/ 180</option>
+                            <option value="marañon">Marañón Selvático - S/ 500</option>
+                            <option value="pachitea">Pachitea: Corazón Verde de Huánuco - S/ 600</option>
+                            <option value="puerto-inca">Puerto Inca Explorador - S/ 400</option>
+                            <option value="yarowilca">Yarowilca Cultural - S/ 190</option>
+                            <option value="ruta-colonial">Ruta Colonial + Aventura - S/ 650</option>
+                            <option value="circuito-andino">Circuito Andino - S/ 800</option>
+                            <option value="amazonica">Experiencia Amazónica - S/ 1200</option>
+                            <option value="gran-tour">Gran Tour Huánuco - S/ 1800</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-travelers">Número de Viajeros:</label>
+                        <!-- Control para especificar cantidad de personas (máximo 20) -->
+                        <input type="number" id="res-travelers" name="travelers" min="1" max="20" required>
+                    </div>
+                </div>
+                
+                <!-- Fecha de viaje y método de pago -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="res-date">Fecha de Viaje:</label>
+                        <input type="date" id="res-date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="res-payment">Método de Pago:</label>
+                        <!-- Múltiples opciones de pago para comodidad del cliente -->
+                        <select id="res-payment" name="payment" required>
+                            <option value="">Seleccione...</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                            <option value="transferencia">Transferencia Bancaria</option>
+                            <option value="yape">Yape</option>
+                            <option value="plin">Plin</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Comentarios especiales y preferencias -->
+                <div class="form-group">
+                    <label for="res-comments">Comentarios o Solicitudes Especiales:</label>
+                    <!-- Área para necesidades especiales, alergias, etc. -->
+                    <textarea id="res-comments" name="comments" rows="3" placeholder="Alergias, preferencias alimentarias, necesidades especiales, etc."></textarea>
+                </div>
+                
+                <!-- Opt-in para newsletter -->
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="res-newsletter" name="newsletter">
+                    <label for="res-newsletter">Deseo recibir información sobre ofertas y novedades</label>
+                </div>
+                
+                <!-- Botón de envío del formulario -->
+                <button type="submit" class="submit-btn">Realizar Reservación</button>
+            </form>
+        </div>
+        
+        <!-- Información importante sobre políticas de reserva -->
+        <div class="reservation-info">
+            <h3>Información Importante</h3>
+            <!-- Términos y condiciones claros para el cliente -->
+            <ul>
+                <li>Las reservaciones se confirman dentro de 24 horas</li>
+                <li>Se requiere un adelanto del 50% para confirmar la reserva</li>
+                <li>Cancelaciones gratuitas hasta 48 horas antes del viaje</li>
+                <li>Los precios pueden variar según temporada alta</li>
+                <li>Todos los paquetes incluyen seguro de viajero</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección Atención al Cliente -->
+    <!-- Centro de contacto y soporte completo para los clientes -->
+    <section id="atencion" class="customer-service content-section">
+        <h2>Atención al Cliente</h2>
+        <div class="contact-info">
+            <!-- Información de contacto principal -->
+            <div class="contact-section">
+                <h3>Información de Contacto</h3>
+                <!-- Datos de contacto directo con la empresa -->
+                <div class="contact-details">
+                    <p><strong>Email:</strong> info@tourcadd.com</p>
+                    <p><strong>Teléfono:</strong> +51 994 120 211</p>
+                    <p><strong>WhatsApp:</strong> +51 983 647 983</p>
+                    <p><strong>Horario de Atención:</strong> Lunes a Domingo de 8:00 AM a 8:00 PM</p>
+                </div>
+            </div>
+            
+            <!-- Enlaces a redes sociales oficiales -->
+            <div class="contact-section">
+                <h3>Redes Sociales</h3>
+                <!-- Presencia digital en plataformas principales -->
+                <div class="social-media">
+                    <p><strong>Facebook:</strong> @TourCADDTurismo</p>
+                    <p><strong>Instagram:</strong> @tourcadd_oficial</p>
+                    <p><strong>TikTok:</strong> @tourcadd_tours</p>
+                    <p><strong>YouTube:</strong> TourCADD Turismo Huánuco</p>
+                </div>
+            </div>
+            
+            <!-- Ubicaciones físicas de la empresa -->
+            <div class="contact-section">
+                <h3>Oficinas</h3>
+                <!-- Puntos de atención presencial -->
+                <div class="office-info">
+                    <p><strong>Oficina Principal:</strong> PRONTA INAUGURACIÓN, Huánuco</p>
+                    <p><strong>Sucursal Tingo María:</strong> PRONTA INAUGURACIÓN, Tingo María</p>
+                    <p><strong>Punto de Atención Ambo:</strong> PROXIMAMENTE, Ambo</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sistema de quejas y reclamos -->
+        <div class="complaints-section">
+            <h3>Libro de Reclamaciones</h3>
+            <!-- Formulario para reclamos, quejas y sugerencias -->
+            <div class="complaints-form">
+                <form>
+                    <!-- Datos del reclamante -->
+                    <div class="form-group">
+                        <label for="complaint-name">Nombre Completo:</label>
+                        <input type="text" id="complaint-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="complaint-email">Email:</label>
+                        <input type="email" id="complaint-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="complaint-phone">Teléfono:</label>
+                        <input type="tel" id="complaint-phone" name="phone" required>
+                    </div>
+                    
+                    <!-- Tipo de comunicación -->
+                    <div class="form-group">
+                        <label for="complaint-type">Tipo:</label>
+                        <!-- Clasificación del tipo de mensaje -->
+                        <select id="complaint-type" name="type" required>
+                            <option value="">Seleccione...</option>
+                            <option value="reclamo">Reclamo</option>
+                            <option value="queja">Queja</option>
+                            <option value="sugerencia">Sugerencia</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Descripción detallada del problema o sugerencia -->
+                    <div class="form-group">
+                        <label for="complaint-message">Mensaje:</label>
+                        <textarea id="complaint-message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <!-- Botón de envío -->
+                    <button type="submit" class="submit-btn">Enviar Reclamación</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Desarrolladores -->
+    <!-- Presentación del equipo técnico detrás del proyecto -->
+    <section id="desarrolladores" class="developers-section">
+        <h2>Equipo de Desarrollo</h2>
+        <p class="section-description">Conoce al equipo de desarrolladores detrás de TourCADD</p>
+        
+        <!-- Grid de tarjetas de desarrolladores -->
+        <div class="developers-grid">
+            <!-- Desarrollador 1 -->
+            <div class="developer-card">
+                <div class="developer-avatar">
+                    <img src="IMAGENES SECUNDARIAS/bedoya.png" alt="Bedoya Meza, Dedier Andrei">
+                </div>
+                <div class="developer-info">
+                    <h3>Bedoya Meza, Dedier Andrei</h3>
+                    <p class="developer-age">19 años</p>
+                    <!-- Enlaces a redes sociales personales -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/dedier.bedoya.7" target="_blank" class="social-link facebook" title="Facebook">
+                            <i class="bi bi-facebook" style="color: black;"></i>
+                        </a>
+                        <a href="https://wa.me/51923967598" target="_blank" class="social-link whatsapp" title="WhatsApp">
+                            <i class="bi bi-whatsapp" style="color: black;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dedier_bedme/" target="_blank" class="social-link instagram" title="Instagram">
+                            <i class="bi bi-instagram" style="color: black;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desarrollador 2 -->
+            <div class="developer-card">
+                <div class="developer-avatar">
+                    <img src="IMAGENES SECUNDARIAS/chuco.png" alt="Chuco Sanchez, Joseph David">
+                </div>
+                <div class="developer-info">
+                    <h3>Chuco Sanchez, Joseph David</h3>
+                    <p class="developer-age">17 años</p>
+                    <!-- Enlaces a redes sociales personales -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/joseph.david.188739" target="_blank" class="social-link facebook" title="Facebook">
+                            <i class="bi bi-facebook" style="color: black;"></i>
+                        </a>
+                        <a href="https://wa.me/51983647983" target="_blank" class="social-link whatsapp" title="WhatsApp">
+                            <i class="bi bi-whatsapp" style="color: black;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/davi_chs/" target="_blank" class="social-link instagram" title="Instagram">
+                            <i class="bi bi-instagram" style="color: black;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desarrollador 3 -->
+            <div class="developer-card">
+                <div class="developer-avatar">
+                    <img src="IMAGENES SECUNDARIAS/geronimo.png" alt="Geronimo del Carpio, Camila">
+                </div>
+                <div class="developer-info">
+                    <h3>Geronimo del Carpio, Camila </h3>
+                    <p class="developer-age">17 años</p>
+                    <!-- Enlaces a redes sociales personales -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/camila.geronimo.del.carpio" target="_blank" class="social-link facebook" title="Facebook">
+                            <i class="bi bi-facebook" style="color: black;"></i>
+                        </a>
+                        <a href="https://wa.me/51907550557" target="_blank" class="social-link whatsapp" title="WhatsApp">
+                            <i class="bi bi-whatsapp" style="color: black;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/camila.gero/" target="_blank" class="social-link instagram" title="Instagram">
+                            <i class="bi bi-instagram" style="color: black;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desarrollador 4 -->
+            <div class="developer-card">
+                <div class="developer-avatar">
+                    <img src="IMAGENES SECUNDARIAS/noya.png" alt="Noya Ayllon, Adriano Estefano">
+                </div>
+                <div class="developer-info">
+                    <h3>Noya Ayllon, Adriano Estefano</h3>
+                    <p class="developer-age">17 años</p>
+                    <!-- Enlaces a redes sociales personales -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/adrianoestefano.noyaayllon" target="_blank" class="social-link facebook" title="Facebook">
+                            <i class="bi bi-facebook" style="color: black;"></i>
+                        </a>
+                        <a href="https://wa.me/51994120211" target="_blank" class="social-link whatsapp" title="WhatsApp">
+                            <i class="bi bi-whatsapp" style="color: black;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/noyita_0204/" target="_blank" class="social-link instagram" title="Instagram">
+                            <i class="bi bi-instagram" style="color: black;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Pie de página con información esencial y navegación -->
+    <footer>
+        <div class="footer-content">
+            <!-- Información de la empresa -->
+            <div class="footer-section">
+                <h3>TourCADD</h3>
+                <p>Promoviendo el turismo en las 11 provincias de Huánuco</p>
+            </div>
+            
+            <!-- Navegación rápida -->
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <!-- Menú de navegación principal -->
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#provincias">Provincias</a></li>
+                    <li><a href="#paquetes">Paquetes</a></li>
+                    <li><a href="#atencion">Atencion</a></li>
+                    <li><a href="#reservacion">Reservar</a></li>
+                </ul>
+            </div>
+            
+            <!-- Información de contacto resumida -->
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <!-- Datos de contacto esenciales -->
+                <p>Email: info@tourcadd.com</p>
+                <p>Teléfono: +51 994 120 211</p>
+                <p>Huánuco, Perú</p>
+            </div>
+        </div>
+        
+        <!-- Copyright y derechos reservados -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 TourCADD. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Script JavaScript para funcionalidad interactiva -->
+    <script src="script.js"></script>
+
+</body>
+</html>
